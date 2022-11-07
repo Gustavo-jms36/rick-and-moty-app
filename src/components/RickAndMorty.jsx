@@ -1,26 +1,17 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ResidentInfo from "./ResidentInfo";
-import Pagination from "./Pagination";
 
 const RickAndMorty = () => {
   const [location, setLocation] = useState([]);
 
   const [locationId, setLocationId] = useState("");
 
-  const [info, setInfo] = useState({});
-
   useEffect(() => {
     const randomLocation = Math.floor(Math.random() * 126) + 1;
     axios
       .get(`https://rickandmortyapi.com/api/location/${randomLocation}`)
       .then((res) => setLocation(res.data));
-  }, []);
-
-  useEffect(() => {
-    axios
-      .get("https://rickandmortyapi.com/api/character/")
-      .then((res) => setInfo(res.data.info));
   }, []);
 
   // console.log(location);
@@ -38,16 +29,6 @@ const RickAndMorty = () => {
       return "Residents";
     }
   };
-
-  const onPrevious = () => {
-    axios.get(info.prev);
-  };
-
-  const onNext = () => {
-    axios.get(info.next);
-  };
-
-  console.log(info);
 
   return (
     <>
@@ -108,13 +89,37 @@ const RickAndMorty = () => {
             <ResidentInfo key={resident} url={resident} />
           ))}
         </ul>
+
         <div className="row">
-          <Pagination
-            prev={info?.prev}
-            next={info?.next}
-            onPrevious={onPrevious}
-            onNext={onNext}
-          />
+          <div className="col-12">
+            <nav aria-label="Page navigation example">
+              <ul className="pagination justify-content-center">
+                <li className="page-item disabled">
+                  <a className="page-link" href="#">Previous</a>
+                </li>
+                <li className="page-item">
+                  <a className="page-link" href="#">
+                    1
+                  </a>
+                </li>
+                <li className="page-item">
+                  <a className="page-link" href="#">
+                    2
+                  </a>
+                </li>
+                <li className="page-item">
+                  <a className="page-link" href="#">
+                    3
+                  </a>
+                </li>
+                <li className="page-item">
+                  <a className="page-link" href="#">
+                    Next
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
       </div>
     </>
