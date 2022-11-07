@@ -8,7 +8,7 @@ const ResidentInfo = ({ url }) => {
     axios.get(url).then((res) => setCharacter(res.data));
   }, []);
 
-  console.log(character);
+  // console.log(character);
   
   const isAlive = () => {
     if ((character.status) === 'Alive') {
