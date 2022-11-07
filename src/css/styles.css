@@ -1,0 +1,53 @@
+body{
+  background: #05292E;
+}
+
+ul li {
+  list-style: none;
+}
+
+.btn {
+  background: #05292E;
+  color: #ebebeb;
+}
+
+.btn:hover{
+  background: #062226;
+}
+
+.info-location {
+  color: #ebebeb;
+  background: #062226;
+}
+
+.no-residents {
+  color: #ebebeb;
+  background: #062226;
+}
+
+.no-residents p {
+  padding: 20px 0;
+}
+
+.card {
+  background: #062226;
+  color: #ebebeb;
+  
+}
+
+.card-body span {
+  font-size: 12px;
+  color: #9b9b9b;
+}
+
+.status {
+  position: absolute;
+  top: 20px;
+  left: 70px;
+}
+
+
+.card:hover {
+  box-shadow: 1px 1px 10px 1px rgba(255,255,255,0.5);
+  transform: translateY(-4%);
+}
