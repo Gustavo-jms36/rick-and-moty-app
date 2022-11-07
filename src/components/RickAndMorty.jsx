@@ -16,8 +16,6 @@ const RickAndMorty = () => {
 
   // console.log(location);
 
-
-
   const searchLocation = () => {
     axios
       .get(`https://rickandmortyapi.com/api/location/${locationId}`)
@@ -26,11 +24,11 @@ const RickAndMorty = () => {
 
   const locationNull = () => {
     if (location.residents?.length === 0) {
-      return 'No residents in this location'
-    }else {
-      return "Residents"
+      return "No residents in this location";
+    } else {
+      return "Residents";
     }
-  }
+  };
 
   return (
     <>
@@ -86,12 +84,44 @@ const RickAndMorty = () => {
             </div>
           </div>
         </div>
-            <ul className="row p-0">
-            {location.residents?.map((resident) => (
-              <ResidentInfo key={resident} url={resident} />
-            ))}
-            </ul>
+        <ul className="row p-0">
+          {location.residents?.map((resident) => (
+            <ResidentInfo key={resident} url={resident} />
+          ))}
+        </ul>
+
+        <div className="row">
+          <div className="col-12">
+            <nav aria-label="Page navigation example">
+              <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#">Previous</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    1
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    2
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    3
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    Next
+                  </a>
+                </li>
+              </ul>
+            </nav>
           </div>
+        </div>
+      </div>
     </>
   );
 };
