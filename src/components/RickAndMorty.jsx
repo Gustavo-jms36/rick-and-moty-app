@@ -19,7 +19,7 @@ const RickAndMorty = () => {
 
   useEffect(() => {
     axios
-      .get("https://rickandmortyapi.com/api/character/?name=rick&name")
+      .get("https://rickandmortyapi.com/api/character/")
       .then((res) => setInfo(res.data.info));
   }, []);
 
